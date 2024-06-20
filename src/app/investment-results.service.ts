@@ -1,17 +1,20 @@
 import { Injectable } from '@angular/core';
+import { InvestmentInput } from './investment-input.model';
 
 @Injectable({ providedIn: 'root' })
 export class InvestmentResultsService {
-  // Use the below code as a help
-  // e.g., integrate it into a service or component
-  // You may need to tweak it, depending on where and how you use it
+  resultsData?: {
+    year: number;
+    interest: number;
+    valueEndOfYear: number;
+    annualInvestment: number;
+    totalInterest: number;
+    totalAmountInvested: number;
+  }[];
 
-  calculateInvestmentResults(
-    initialInvestment: number,
-    expectedReturn: number,
-    annualInvestment: number,
-    duration: number
-  ) {
+  calculateInvestmentResults(data: InvestmentInput) {
+    const { initialInvestment, annualInvestment, expectedReturn, duration } =
+      data;
     const annualData = [];
     let investmentValue = initialInvestment;
 
@@ -31,6 +34,7 @@ export class InvestmentResultsService {
       });
     }
 
-    return annualData;
+    // this.resultsData.set(annualData);
+    this.resultsData = annualData;
   }
 }
