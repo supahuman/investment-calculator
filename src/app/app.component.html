@@ -1,4 +1,3 @@
-<div>
-  <app-header />
-  <app-user-input />
-</div>
+<app-header />
+<app-user-input (calculate)="OnCalculateInvestmentResults($event)" />
+<app-results [results]="resultsData" />
