@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output, signal } from '@angular/core';
+import { Component, output, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { InvestmentInput } from '../investment-input.model';
 
@@ -12,7 +12,7 @@ import { InvestmentResultsService } from './investment-results.service';
   imports: [FormsModule],
 })
 export class UserInputComponent {
-  @Output() calculate = new EventEmitter<InvestmentInput>();
+  calculate = output<InvestmentInput>();
 
   enteredInitialInvestment = signal('0');
   enteredAnnualInvestment = signal('0');
